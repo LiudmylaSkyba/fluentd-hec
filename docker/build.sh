@@ -15,5 +15,6 @@ cp pkg/fluent-plugin-*.gem docker
 VERSION=`cat VERSION`
 echo "Copying licenses to be included in the docker image..."
 mkdir -p docker/licenses
+
 cp -rp LICENSE docker/licenses/
 docker build --no-cache --pull --build-arg VERSION=$VERSION -t splunk/fluentd-hec:$TAG ./docker
